@@ -14,3 +14,33 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.inputButton {
+  background-color: aquamarine;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+label {
+  color: white;
+  background-color: #ff6496;
+  height: 50px;
+  width: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.logo {
+  padding: 20px;
+}
+
+.topContainer {
+  display: flex;
+  align-items: center;
+}
