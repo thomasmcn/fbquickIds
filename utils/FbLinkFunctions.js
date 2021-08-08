@@ -1,14 +1,32 @@
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const getPostId =(url) => {
-const idpartone = url.split('/')[5]
-const id = idpartone.split('?')[0]
-console.log(id)
-return id
+
+  try {
+    
+    const idpartone = url.split('/')[5]
+    const id = idpartone.split('?')[0]
+    console.log(id)
+    return id
+  } catch (error) {
+    console.log(error)
+    toast("missing fields on spread sheet")
+  }
+ 
 }
 
 export const linkShorter =(url) => {
-  const shortLink = url.split('?')[0]
+  
+  try {
+    const shortLink = url.split('?')[0]
   console.log(shortLink)
   return shortLink
+    
+  } catch (error) {
+    toast(error)
+  }
+  
 }
 
 export const AdNameJoiner = (part1, part2) => {

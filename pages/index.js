@@ -3,10 +3,17 @@ import styles from '../styles/Home.module.css'
 import { useState } from "react";
 import * as XLSX from "xlsx";
 import {linkShorter,getPostId,xRemover,AdNameJoiner,fullJoiner} from "../utils/FbLinkFunctions"
-
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import Image from 'next/image'
+import { ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
+
+  const errOne = () => {
+    toast.error("Your export from Facebook is missing information. Permalinks can take up to 10 minutes to populate on Facebook.")
+    return ''
+  }
 
   const [items, setItems] = useState([]);
 
@@ -55,7 +62,7 @@ export default function Home() {
       <label for='file'>Upload XLXS File</label>
       </div>
 
-      <table class="table container">
+      <table class="table container" id="newTable">
         <thead>
           <tr>
             <th scope="col">Ad Name</th>
@@ -65,11 +72,12 @@ export default function Home() {
           </tr>
         </thead>
         <tbody>
+          
           {items.map((d) => (
             <tr key={d.permalink}>
               <th>{d["Ad Name"]}</th>
               <td>{linkShorter(d["Permalink"])}</td>
-              <td>{getPostId(d["Permalink"])}</td>
+              <td>'{getPostId(d["Permalink"])}</td>
               <td>{fullJoiner(d["Permalink"],d["Ad Name"])}</td>
 
               
@@ -77,6 +85,17 @@ export default function Home() {
           ))}
         </tbody>
       </table>
+      <div className= "btn-box">
+      <ReactHTMLTableToExcel
+                    id="test-table-xls-button"
+                    className="btn2"
+                    table="newTable"
+                    filename="tablexls"
+                    sheet="tablexls"
+                    buttonText="Download as XLS"/>
+                    </div>
+                    <ToastContainer />
+                
       {console.log(items)}
     </div>
   )

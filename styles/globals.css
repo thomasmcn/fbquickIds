@@ -34,6 +34,7 @@ label {
   font-size: 17px;
   border-radius: 50px;
   font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .logo {
@@ -43,4 +44,23 @@ label {
 .topContainer {
   display: flex;
   align-items: center;
+}
+
+.btn2 {
+  color: white;
+  border-radius: 20px;
+  width: 175px;
+  height: 40px;
+  font-weight: bold;
+  border: none;
+  border-color: #141338;
+  background-color: #ff6496;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-top: 30px;
+}
+
+.btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
