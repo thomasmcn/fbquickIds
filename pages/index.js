@@ -67,7 +67,7 @@ export default function Home() {
         <tbody>
           {items.map((d) => (
             <tr key={d.permalink}>
-              <th>{d["Ad Name"]}"</th>
+              <th>{d["Ad Name"]}</th>
               <td>{linkShorter(d["Permalink"])}</td>
               <td>{getPostId(d["Permalink"])}</td>
               <td>{fullJoiner(d["Permalink"],d["Ad Name"])}</td>
